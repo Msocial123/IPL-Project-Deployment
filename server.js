@@ -6,7 +6,7 @@ const multer = require('multer');
 require('dotenv').config(); // Load environment variables from .env file
 
 const app = express();
-const port = process.env.PORT || 3020;
+const port = process.env.PORT || 3000;
 
 // Configure multer for file uploads
 const upload = multer({ dest: 'uploads/' }); // Define upload directory
