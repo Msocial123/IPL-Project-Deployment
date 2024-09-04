@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Points Table</title>
+    <style>
+        body {
+            font-family: cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f618d;
+            background: url("IMAGES/point.avif") no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+        }
+        table {
+            display: none;
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.6); /* Semi-transparent background for the table */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .header {
+            background-color: #c1baba;
+            padding: 15px;
+            color: #fff;
+        }
+        .header a {
+            color: #4469ba;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
+        .season-select {
+            margin: 20px 0;
+        }
+        .season-select select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="GUDA.html">Back to Home</a>
+    </div>
+    <div class="container">
+        <h1>Points Table</h1>
+        <div class="season-select">
+            <label for="season">Select Season:</label>
+            <select id="season" onchange="updateTable()">
+                <option value="">--Select Season--</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+        </div>
+
+        <!-- Points Table for 2022 -->
+        <table id="table-2022">
+            <thead>
+                <tr>
+                    <th>Season</th>
+                    <th>Team</th>
+                    <th>Matches Played</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2022</td>
+                    <td>GT</td>
+                    <td>14</td>
+                    <td>10</td>
+                    <td>4</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>RR</td>
+                    <td>14</td>
+                    <td>9</td>
+                    <td>5</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>LSG</td>
+                    <td>14</td>
+                    <td>9</td>
+                    <td>5</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>RCB</td>
+                    <td>14</td>
+                    <td>8</td>
+                    <td>6</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>DC</td>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>PBKS</td>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>KKR</td>
+                    <td>14</td>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>SRH</td>
+                    <td>14</td>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>CSK</td>
+                    <td>14</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>MI</td>
+                    <td>14</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td>8</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Points Table for 2023 -->
+        <table id="table-2023">
+            <thead>
+                <tr>
+                    <th>Season</th>
+                    <th>Team</th>
+                    <th>Matches Played</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2023</td>
+                    <td>GT</td>
+                    <td>14</td>
+                    <td>10</td>
+                    <td>4</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>CSK</td>
+                    <td>14</td>
+                    <td>8</td>
+                    <td>5</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>LSG</td>
+                    <td>14</td>
+                    <td>8</td>
+                    <td>5</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>MI</td>
+                    <td>14</td>
+                    <td>8</td>
+                    <td>6</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>RR</td>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>RCB</td>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>KKR</td>
+                    <td>14</td>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>SRH</td>
+                    <td>14</td>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>DC</td>
+                    <td>14</td>
+                    <td>5</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>SRH</td>
+                    <td>14</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td>8</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+        <!-- Points Table for 2024 -->
+        <table id="table-2024">
+            <thead>
+                <tr>
+                    <th>Season</th>
+                    <th>Team</th>
+                    <th>Matches Played</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024</td>
+                    <td>KKR</td>
+                    <td>14</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>SRH</td>
+                    <td>14</td>
+                    <td>8</td>
+                    <td>5</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>RR</td>
+                    <td>14</td>
+                    <td>8</td>
+                    <td>5</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>RCB</td>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>CSK</td>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>DC</td>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>LSG</td>
+                    <td>14</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>GT</td>
+                    <td>14</td>
+                    <td>5</td>
+                    <td>7</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>PBKS</td>
+                    <td>14</td>
+                    <td>5</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>DC</td>
+                    <td>14</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td>8</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function updateTable() {
+            const season = document.getElementById('season').value;
+            const tables = document.querySelectorAll('table');
+
+            tables.forEach(table => {
+                table.style.display = 'none'; // Hide all tables
+            });
+
+            if (season) {
+                const selectedTable = document.getElementById(`table-${season}`);
+                if (selectedTable) {
+                    selectedTable.style.display = 'table'; // Show the selected table
+                }
+            }
+        }
+    </script>
+</body>
+</html>

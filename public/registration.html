@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('IMAGES/reg.jpg') no-repeat center center fixed;
+            background-size: cover; /* Ensure the image covers the whole page */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 1200px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .gender-options {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .gender-options div {
+            display: flex;
+            align-items: center;
+        }
+
+        .gender-options label {
+            margin: 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>New Player Registration Form</h1>
+        <form id="registration-form" action="/register" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first_name" required>
+            </div>
+            <div class="form-group">
+                <label for="second-name">Second Name:</label>
+                <input type="text" id="second-name" name="second_name" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <input type="text" id="role" name="role" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <div class="phone-number">
+                    <select id="country-code" name="country_code" required>
+                        <option value="+91">+91 (India)</option>
+                        <option value="+1">+1 (USA/Canada)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+61">+61 (Australia)</option>
+                    </select>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div>
+                <label for="matches">No. of Matches:</label>
+                <input type="text" id="matches" name="matches" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="marital-status">Marital Status:</label>
+                <select id="marital-status" name="marital_status" required>
+                    <option value="">Select</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="jersey_size">Jersey Size:</label>
+                <select id="jersey_size" name="jersey_size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="extra_large">Extra Large</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="medical_conditions">Existing Medical Conditions:</label>
+                <textarea id="medical_conditions" name="medical_conditions"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="allergies">Allergies:</label>
+                <textarea id="allergies" name="allergies"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="medications">Current Medications:</label>
+                <textarea id="medications" name="medications"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="proof-of-identity">Proof of Identity:</label>
+                <input type="file" id="proof-of-identity" name="proof_of_identity" accept=".jpg, .jpeg, .png, .pdf">
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">I consent to participate and agree to the club/team rules and regulations.</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="submit.js" defer></script>
+</body>
+</html>
