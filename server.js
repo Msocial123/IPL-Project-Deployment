@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const mongoURI = process.env.MONGO_URI || 'mongodb://iplnodejsproject-mongodb-1:27017/ipl';
+
 const path = require('path');
 const bodyParser = require('body-parser');
 const multer = require('multer');
@@ -15,6 +17,8 @@ const upload = multer({ dest: 'uploads/' }); // Define upload directory
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
@@ -97,5 +101,4 @@ app.post('/register', upload.single('proof_of_identity'), async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
- 
  

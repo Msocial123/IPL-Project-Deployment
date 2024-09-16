@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // If form is valid, submit the form
             if (isValid) {
                 form.submit(); // You can remove this line if you want to handle form submission with AJAX
-                alert('Employee Registered Successfully!');
+                alert('New Cricketer Registered Successfully!');
             }
         });
     }
