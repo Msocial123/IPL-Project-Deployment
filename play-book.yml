@@ -1,0 +1,77 @@
+---
+- name: Setup and deploy IPL application
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install necessary packages
+      apt:
+        name:
+          - curl
+          - git
+          - apache2
+          - nodejs
+          - npm
+        state: present
+        update_cache: yes
+
+    - name: Clone the IPL player details repository
+      git:
+        repo: 'https://github.com/Akshayaguda/Akshaya_IPL_Player_Details_Devops.git'
+        dest: /var/www/html/ipl-player-details
+
+    - name: Install project dependencies
+      command: npm install
+      args:
+        chdir: /var/www/html/ipl-player-details
+
+    - name: Set up MongoDB environment variables
+      copy:
+        dest: /var/www/html/ipl-player-details/.env
+        content: |
+          MONGO_URI=mongodb://iplnodejsproject-mongodb-1:27017/ipl
+          PORT=3000
+
+    - name: Copy static webpages to Apache root
+      copy:
+        src: /var/www/html/ipl-player-details/public/
+        dest: /var/www/html/
+        owner: www-data
+        group: www-data
+        mode: '0644'
+
+    - name: Create systemd service file for Node.js application
+      copy:
+        dest: /etc/systemd/system/ipl-node-app.service
+        content: |
+          [Unit]
+          Description=IPL Node.js App
+          After=network.target
+
+          [Service]
+          ExecStart=/usr/bin/node /var/www/html/ipl-player-details/server.js
+          WorkingDirectory=/var/www/html/ipl-player-details
+          Restart=always
+          User=nobody
+          Environment=PORT=3000 MONGO_URI=mongodb://iplnodejsproject-mongodb-1:27017/iplipl
+
+          [Install]
+          WantedBy=multi-user.target
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Reload systemd to apply the new service
+      command: systemctl daemon-reload
+
+    - name: Start and enable the Node.js application service
+      systemd:
+        name: ipl-node-app
+        state: started
+        enabled: yes
+
+    - name: Restart Apache service
+      service:
+        name: apache2
+        state: restarted
+

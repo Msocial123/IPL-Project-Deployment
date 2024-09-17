@@ -6,3 +6,7 @@ db.players.find().pretty()
 show collections
 use ipl
 show databases
+db.players.find().pretty()
+show collections
+use ipl
+show databases
