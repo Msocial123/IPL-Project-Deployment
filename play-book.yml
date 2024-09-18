@@ -53,7 +53,7 @@
           WorkingDirectory=/var/www/html/ipl-player-details
           Restart=always
           User=nobody
-          Environment=PORT=3000 MONGO_URI=mongodb://iplnodejsproject-mongodb-1:27017/iplipl
+          Environment=PORT=3000 MONGO_URI=mongodb://iplnodejsproject-mongodb-1:27017/ipl
 
           [Install]
           WantedBy=multi-user.target
